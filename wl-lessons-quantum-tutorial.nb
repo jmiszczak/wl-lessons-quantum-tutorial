@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     30571,        871]
-NotebookOptionsPosition[     25534,        789]
-NotebookOutlinePosition[     25934,        805]
-CellTagsIndexPosition[     25891,        802]
+NotebookDataLength[     47895,       1206]
+NotebookOptionsPosition[     39271,       1094]
+NotebookOutlinePosition[     39667,       1110]
+CellTagsIndexPosition[     39624,       1107]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -30,21 +30,56 @@ Cell["Introduction", "Subtitle",
    3.9589680232906427`*^9},ExpressionUUID->"feeba951-c5ca-48c1-afcf-\
 f7aa16839a08"],
 
-Cell["\<\
-In this tutorial we introduce the basic block of used in quantum computing \
-using only the basic data structures available in Wolfram language. \
-\>", "Text",
+Cell[TextData[{
+ "In this tutorial we introduce the basic block of used in quantum computing \
+using only the basic data structures available in Wolfram language.  We \
+demonstrate how the concept from quantum computing can be mapped on the \
+elements of Wolfram language, such as lists and functions.\n\nThe tutorial is \
+based on the examples from the book: Jaros\[LSlash]aw A. Miszczak, ",
+ StyleBox["Short Lessons on Wolfram Language: Programming, Data Processing, \
+Graphics, Machine Learning, and Quantum Computing with Mathematica",
+  FontSlant->"Italic"],
+ ", ISBN: 978-83-66950-01-6, Quoqa Pubs, 2024. [",
+ ButtonBox["Amazon.com",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.amazon.com/dp/8366950018/"], None},
+  ButtonNote->"https://www.amazon.com/dp/8366950018/"],
+ "] [",
+ ButtonBox["Amazon.co.uk",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.amazon.co.uk/dp/8366950018/"], None},
+  ButtonNote->"https://www.amazon.co.uk/dp/8366950018/"],
+ "] [",
+ ButtonBox["PDF at ICM OPEN",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://open.icm.edu.pl/handle/123456789/24302"], None},
+  ButtonNote->"https://open.icm.edu.pl/handle/123456789/24302"],
+ "] [",
+ ButtonBox["More info",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://miszczak.eu/wl-lessons/"], None},
+  ButtonNote->"https://miszczak.eu/wl-lessons/"],
+ "]. \n\nThis book is freely available from https://miszczak.eu/wl-lessons\n\n\
+More examples can be found at https://github.com/jmiszczak/wl-lessons-examples"
+}], "Text",
  CellChangeTimes->{{3.95888259305155*^9, 3.95888261097199*^9}, 
-   3.958882645931768*^9, {3.958882792788251*^9, 
-   3.958882820648655*^9}},ExpressionUUID->"a6eb60f0-a8f7-49fa-b2a8-\
+   3.958882645931768*^9, {3.958882792788251*^9, 3.958882820648655*^9}, {
+   3.9589718201719112`*^9, 3.958971908573827*^9}, {3.958972011087038*^9, 
+   3.9589720359219913`*^9}, {3.9589769449710073`*^9, 3.958977002231697*^9}, {
+   3.958979435572887*^9, 
+   3.958979467316655*^9}},ExpressionUUID->"a6eb60f0-a8f7-49fa-b2a8-\
 705708f2b715"],
 
 Cell[CellGroupData[{
 
-Cell["Quantum bits", "Subtitle",
+Cell["Quantum bits as lists", "Subtitle",
  CellChangeTimes->{{3.958882879877071*^9, 3.958882918921546*^9}, {
-  3.958883745921681*^9, 
-  3.958883746481386*^9}},ExpressionUUID->"58ac153e-2888-4097-a3ef-\
+  3.958883745921681*^9, 3.958883746481386*^9}, {3.9589764805306587`*^9, 
+  3.958976481801682*^9}},ExpressionUUID->"58ac153e-2888-4097-a3ef-\
 ef30a5b4655f"],
 
 Cell[TextData[{
@@ -102,7 +137,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.9588833839915323`*^9, 3.958883387394882*^9}, {
   3.958883434971528*^9, 3.95888344643294*^9}, {3.958883866935281*^9, 
   3.9588838735941677`*^9}},
- CellLabel->"In[25]:=",ExpressionUUID->"b770a41d-1bbb-447a-98ee-b9be93568dad"],
+ CellLabel->"In[1]:=",ExpressionUUID->"b770a41d-1bbb-447a-98ee-b9be93568dad"],
 
 Cell[BoxData[{
  RowBox[{
@@ -125,8 +160,6 @@ Cell["As you can see, kets are just lists.", "Text",
   3.958968066481372*^9}},ExpressionUUID->"82d86db0-c5a4-47c9-8e58-\
 814bb5d7e26b"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  TemplateBox[{"0"},
   "Ket"]], "Input",
@@ -134,28 +167,10 @@ Cell[BoxData[
  CellLabel->"In[5]:=",ExpressionUUID->"d479503c-00dd-41a4-bcd6-eba2bc547182"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"1", ",", "0"}], "}"}]], "Output",
- CellChangeTimes->{{3.958883567495206*^9, 3.9588835852871*^9}, 
-   3.958883876065674*^9, 3.9589616295532093`*^9, 3.9589680349272537`*^9},
- CellLabel->"Out[5]=",ExpressionUUID->"39646ac6-af19-4948-8c60-be182eaa436e"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
  TemplateBox[{"1"},
   "Ket"]], "Input",
  CellChangeTimes->{{3.958883593093219*^9, 3.958883593213788*^9}},
  CellLabel->"In[6]:=",ExpressionUUID->"0482fdbb-3e16-4759-bb32-4f420630c4ea"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"0", ",", "1"}], "}"}]], "Output",
- CellChangeTimes->{{3.958883589036049*^9, 3.958883593738523*^9}, 
-   3.95888387706075*^9, 3.9589616296179113`*^9, 3.958968034955249*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"651f4a33-8526-455a-af48-7a7dfbd5ae5a"]
-}, Open  ]],
 
 Cell["\<\
 Note that sometimes we say that the state of a qubit is described by a \
@@ -248,8 +263,6 @@ works.",
   3.95896212779416*^9}},ExpressionUUID->"cdce50e5-a028-4c8c-87de-\
 d0ea8cd937ed"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[{
  RowBox[{
   RowBox[{"mA", "=", 
@@ -274,67 +287,6 @@ Cell[BoxData[{
  CellChangeTimes->{{3.958962049226699*^9, 3.9589621151158457`*^9}},
  CellLabel->"In[8]:=",ExpressionUUID->"845190a8-a821-49b7-88b0-0b11132dfc66"],
 
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", GridBox[{
-     {
-      SubscriptBox["a", 
-       RowBox[{"1", ",", "1"}]], 
-      SubscriptBox["a", 
-       RowBox[{"1", ",", "2"}]]},
-     {
-      SubscriptBox["a", 
-       RowBox[{"2", ",", "1"}]], 
-      SubscriptBox["a", 
-       RowBox[{"2", ",", "2"}]]}
-    },
-    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-    GridBoxSpacings->{"Columns" -> {
-        Offset[0.27999999999999997`], {
-         Offset[0.7]}, 
-        Offset[0.27999999999999997`]}, "Rows" -> {
-        Offset[0.2], {
-         Offset[0.4]}, 
-        Offset[0.2]}}], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{{3.958962067205319*^9, 3.958962115620763*^9}, 
-   3.9589680349921494`*^9},
- CellLabel->
-  "Out[10]//MatrixForm=",ExpressionUUID->"78ae6eb8-6c64-4ada-84c1-\
-f6ed08f242f5"],
-
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", GridBox[{
-     {
-      SubscriptBox["b", 
-       RowBox[{"1", ",", "1"}]], 
-      SubscriptBox["b", 
-       RowBox[{"1", ",", "2"}]]},
-     {
-      SubscriptBox["b", 
-       RowBox[{"2", ",", "1"}]], 
-      SubscriptBox["b", 
-       RowBox[{"2", ",", "2"}]]}
-    },
-    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-    GridBoxSpacings->{"Columns" -> {
-        Offset[0.27999999999999997`], {
-         Offset[0.7]}, 
-        Offset[0.27999999999999997`]}, "Rows" -> {
-        Offset[0.2], {
-         Offset[0.4]}, 
-        Offset[0.2]}}], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{{3.958962067205319*^9, 3.958962115620763*^9}, 
-   3.958968034993417*^9},
- CellLabel->
-  "Out[11]//MatrixForm=",ExpressionUUID->"555b3c20-5064-4607-891d-\
-ba857e72ea2d"]
-}, Open  ]],
-
 Cell["\<\
 Kronecker product of the above matrices is calculated as follows.\
 \>", "Text",
@@ -342,8 +294,6 @@ Kronecker product of the above matrices is calculated as follows.\
   3.958965946175452*^9, 
   3.9589659492836037`*^9}},ExpressionUUID->"cbbde1d1-79bd-49f7-aa2e-\
 d8dd7f6c897f"],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -353,112 +303,6 @@ Cell[BoxData[
   3.9589620287145967`*^9, 3.958962030164488*^9}, {3.958962158047028*^9, 
   3.95896217716374*^9}},
  CellLabel->"In[12]:=",ExpressionUUID->"18104d1b-1bb2-4f4a-b999-12a25296fae7"],
-
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", GridBox[{
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}]},
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}]},
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}]},
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}]}
-    },
-    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-    GridBoxSpacings->{"Columns" -> {
-        Offset[0.27999999999999997`], {
-         Offset[0.7]}, 
-        Offset[0.27999999999999997`]}, "Rows" -> {
-        Offset[0.2], {
-         Offset[0.4]}, 
-        Offset[0.2]}}], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{
-  3.958961985273357*^9, {3.9589621609695387`*^9, 3.958962177679888*^9}, 
-   3.958968035028517*^9},
- CellLabel->
-  "Out[12]//MatrixForm=",ExpressionUUID->"f4718070-9260-4095-b30b-\
-c4b3c8362a12"]
-}, Open  ]],
 
 Cell[TextData[{
  "In quantum computing this product is denoted using \[CircleTimes] symbol, \
@@ -500,118 +344,11 @@ Now we can write the Kronecker product using the from from the textbooks.\
   3.958966704828033*^9}},ExpressionUUID->"951bbf93-08e6-48a6-8d18-\
 91fd106489ef"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
   RowBox[{"mA", "\[CircleTimes]", "mB"}], "//", "MatrixForm"}]], "Input",
  CellChangeTimes->{{3.9589666444767637`*^9, 3.9589666704387903`*^9}},
  CellLabel->"In[14]:=",ExpressionUUID->"caf8fdfa-33a2-422c-bf21-d3474ada8c91"],
-
-Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", GridBox[{
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}]},
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"1", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}]},
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"1", ",", "2"}]]}]},
-     {
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "1"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "1"}]]}], 
-      RowBox[{
-       SubscriptBox["a", 
-        RowBox[{"2", ",", "2"}]], " ", 
-       SubscriptBox["b", 
-        RowBox[{"2", ",", "2"}]]}]}
-    },
-    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-    GridBoxSpacings->{"Columns" -> {
-        Offset[0.27999999999999997`], {
-         Offset[0.7]}, 
-        Offset[0.27999999999999997`]}, "Rows" -> {
-        Offset[0.2], {
-         Offset[0.4]}, 
-        Offset[0.2]}}], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{{3.958966652821291*^9, 3.958966670927075*^9}, 
-   3.9589667066485233`*^9, 3.9589680350715933`*^9},
- CellLabel->
-  "Out[14]//MatrixForm=",ExpressionUUID->"6f19b9e5-268c-4617-aeac-\
-ec78b12ad4f7"]
-}, Open  ]],
 
 Cell[TextData[{
  "We also want to use Kronecker product with vectors, used to describe \
@@ -643,8 +380,6 @@ Cell["Now we can join qubits to work with quantum registers.", "Text",
    3.958967646449874*^9},ExpressionUUID->"514a7875-9070-41a0-b045-\
 862c07c4c5ad"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
   RowBox[{"Ket", "[", 
@@ -660,19 +395,6 @@ Cell[BoxData[
  CellChangeTimes->{{3.958966948442772*^9, 3.958966956886732*^9}, {
   3.9589671010268173`*^9, 3.958967146283225*^9}},
  CellLabel->"In[16]:=",ExpressionUUID->"769774ce-417d-457e-b3fa-903f76053549"],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   FractionBox["1", 
-    SqrtBox["2"]], ",", 
-   FractionBox["\[ImaginaryI]", 
-    SqrtBox["2"]], ",", "0", ",", "0"}], "}"}]], "Output",
- CellChangeTimes->{
-  3.958966957947254*^9, {3.958967114814577*^9, 3.958967147288467*^9}, 
-   3.958968035113639*^9},
- CellLabel->"Out[16]=",ExpressionUUID->"b9e7f175-c40c-4801-8493-6bd3c1613b7c"]
-}, Open  ]],
 
 Cell[TextData[{
  "In this case the firs qubit is in the base state ",
@@ -728,8 +450,6 @@ Cell[TextData[{
   3.9589670525074463`*^9}},ExpressionUUID->"ad1baff0-485b-4fed-9844-\
 cbc6ac540e39"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{
   RowBox[{"Ket", "[", 
@@ -741,22 +461,11 @@ Cell[BoxData[
  CellChangeTimes->{{3.958967055607424*^9, 3.95896707298283*^9}},
  CellLabel->"In[18]:=",ExpressionUUID->"1104ee81-b70a-4fe3-aed8-8ab80972e6c2"],
 
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-  "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}],
-   "}"}]], "Output",
- CellChangeTimes->{3.958967073548834*^9, 3.958968035150057*^9},
- CellLabel->"Out[18]=",ExpressionUUID->"510e9485-43ce-467e-be44-5668846fbeb4"]
-}, Open  ]],
-
 Cell["We can also use Dirac notation to achieve the same result.", "Text",
  CellChangeTimes->{{3.958967243510125*^9, 3.9589672539398813`*^9}, {
   3.958967289501487*^9, 
   3.9589673106192503`*^9}},ExpressionUUID->"8bdc7579-8b3d-4bf5-8eda-\
 c8ae24eb7b6e"],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -771,24 +480,620 @@ Cell[BoxData[
       "Ket"]}]}], 
    RowBox[{"\[Sqrt]", "2"}]]}]], "Input",
  CellChangeTimes->{{3.9589672556551*^9, 3.9589672853597393`*^9}},
- CellLabel->"In[19]:=",ExpressionUUID->"a21e7dfb-a535-403d-9c1c-ac920e32b8a9"],
+ CellLabel->"In[19]:=",ExpressionUUID->"a21e7dfb-a535-403d-9c1c-ac920e32b8a9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Quantum logic gates and functions", "Subtitle",
+ CellChangeTimes->{{3.9589717219234343`*^9, 3.9589717315944767`*^9}, {
+  3.958976490689104*^9, 
+  3.958976493119774*^9}},ExpressionUUID->"d149e780-22fc-4d07-8df1-\
+fe2cb5fefb98"],
+
+Cell["\<\
+Data processing in quantum computing is achieved via quantum gates. As in \
+this tutorial we try to demonstrate how the concept from quantum computing \
+can be mapped on the elements of Wolfram language, we use functions to \
+introduce quantum gates and their matrix representation.\
+\>", "Text",
+ CellChangeTimes->{{3.958976038517563*^9, 3.958976197469438*^9}, {
+  3.9589763802390842`*^9, 
+  3.958976466416267*^9}},ExpressionUUID->"099b1b33-3945-4d56-a442-\
+bdc886cb76da"],
+
+Cell["\<\
+The simplest gates are based on the classical operations, such as the \
+identity or negation. In such case the quantum operation, expressed as a \
+matrix, is defined by the action of the function representing the gate on the \
+base kets.\
+\>", "Text",
+ CellChangeTimes->{{3.958976038517563*^9, 3.958976197469438*^9}, {
+  3.9589763802390842`*^9, 
+  3.958976462093563*^9}},ExpressionUUID->"fd90909b-0151-4f54-8c68-\
+2857040645c9"],
+
+Cell["\<\
+For example, if we have an identity operation, it can be express in Wolfram \
+language as the function which keeps its input intact.\
+\>", "Text",
+ CellChangeTimes->{{3.958976222160577*^9, 3.958976291668734*^9}, 
+   3.958976471586823*^9},ExpressionUUID->"34b646de-d72d-4115-977e-\
+5f8150488658"],
 
 Cell[BoxData[
- RowBox[{"{", 
+ RowBox[{
+  RowBox[{"idFun", " ", "=", " ", 
+   RowBox[{"#", "&"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9589759248806343`*^9, 3.958975994969913*^9}, {
+  3.958976296496851*^9, 
+  3.9589763093242683`*^9}},ExpressionUUID->"b7acbcbe-0518-49eb-b543-\
+d146283cc173"],
+
+Cell[TextData[{
+ "Now, if we apply this operation to the base kets, which can be done in \
+Wolfram using ",
+ StyleBox["Map",
+  FontWeight->"Bold"],
+ ", we get a corresponding matrix. "
+}], "Text",
+ CellChangeTimes->{{3.958976315084914*^9, 
+  3.958976355616419*^9}},ExpressionUUID->"f596e249-998c-420d-bdab-\
+9083db684a83"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"id", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"idFun", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Ket", "[", 
+        RowBox[{"0", ",", "2"}], "]"}], ",", " ", 
+       RowBox[{"Ket", "[", 
+        RowBox[{"1", ",", "2"}], "]"}]}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"id", "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.9589759248806343`*^9, 3.958975994969913*^9}, {
+  3.958976296496851*^9, 
+  3.9589763093242683`*^9}},ExpressionUUID->"8849b97a-fba3-46d3-8262-\
+fdd3408eecf4"],
+
+Cell["\<\
+Indeed, in this case the corresponding matrix is the identity matrix.\
+\>", "Text",
+ CellChangeTimes->{{3.958976511245346*^9, 
+  3.958976538071903*^9}},ExpressionUUID->"69e88ac3-13cb-41bd-89a5-\
+3b2d3c51b208"],
+
+Cell[TextData[{
+ "Let us now try with the negation. The standard function for the negation \
+flips between 0 and 1. Data in quantum computes are encoded in kets, so our \
+function needs to flip between ",
+ Cell[BoxData[
+  TemplateBox[{"0"},
+   "Ket"]],ExpressionUUID->"8ce0a2b9-b41f-40ee-b24c-d58c6f94d9c1"],
+ "and ",
+ Cell[BoxData[
+  TemplateBox[{"1"},
+   "Ket"]],ExpressionUUID->"cea92a3a-d042-45fb-bbdc-9b76833fb22a"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.958976547115779*^9, 
+  3.958976668900065*^9}},ExpressionUUID->"c653f435-26df-4216-8a06-\
+12a40af8cfa9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"notFun", "=", 
+   RowBox[{
+    RowBox[{"Switch", "[", 
+     RowBox[{"#", ",", "\[IndentingNewLine]", 
+      RowBox[{"Ket", "[", 
+       RowBox[{"0", ",", "2"}], "]"}], ",", 
+      RowBox[{"Ket", "[", 
+       RowBox[{"1", ",", "2"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Ket", "[", 
+       RowBox[{"1", ",", "2"}], "]"}], ",", 
+      RowBox[{"Ket", "[", 
+       RowBox[{"0", ",", "2"}], "]"}]}], "\[IndentingNewLine]", "]"}], 
+    "&"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.958974877591444*^9, 3.958974925923148*^9}, {
+   3.9589749793363667`*^9, 3.9589750216723623`*^9}, {3.958975064252652*^9, 
+   3.958975065744725*^9}, {3.958975105993862*^9, 3.958975125211834*^9}, {
+   3.95897569033463*^9, 3.958975691016706*^9}, 3.958975766199999*^9},
+ CellLabel->"In[72]:=",ExpressionUUID->"dcfa223d-967e-4007-865e-ec37c2e89311"],
+
+Cell["\<\
+Mapping such a function onto the base states we get the corresponding matrix.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.9589766762809277`*^9, 
+  3.958976699225564*^9}},ExpressionUUID->"32f87a0f-1cef-48fc-be87-\
+7d8852d8eb9e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"not", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"notFun", "[", "#", "]"}], "&"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Ket", "[", 
+        RowBox[{"0", ",", "2"}], "]"}], ",", 
+       RowBox[{"Ket", "[", 
+        RowBox[{"1", ",", "2"}], "]"}]}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"not", "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.958975773018756*^9, 3.958975779492227*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"a740f5fc-a7e8-46da-9032-15ad5d9c537d"],
+
+Cell[TextData[{
+ "A little more complicated example is provided by the conditional negation. \
+In this case we only negate the second qubit if the first one is set to ",
+ Cell[BoxData[
+  TemplateBox[{"1"},
+   "Ket"]],ExpressionUUID->"b7e8dab6-05af-4a00-bcdf-f663e2b497cd"],
+ ". This condition can be checking by checking if the first two bits are both \
+set."
+}], "Text",
+ CellChangeTimes->{{3.958976726254078*^9, 3.958976737181637*^9}, {
+  3.958976801988686*^9, 3.9589769228128138`*^9}, {3.9589774862582684`*^9, 
+  3.958977507626718*^9}},ExpressionUUID->"8048a3f9-70a0-4097-9756-\
+67f83e4362d1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cnotFun", "=", 
+   RowBox[{
+    RowBox[{"Switch", "[", 
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", 
+        RowBox[{"1", ";;", "2"}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"id", "\[CircleTimes]", "not"}], ")"}], ".", "#"}], ",", "_", 
+      ",", "#"}], "]"}], "&"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9589751563119993`*^9, 3.9589751690843897`*^9}, {
+   3.958975216387513*^9, 3.958975284483333*^9}, {3.9589753709827547`*^9, 
+   3.9589754002052593`*^9}, {3.958975441734467*^9, 3.958975452820902*^9}, {
+   3.958975573340747*^9, 3.958975580604303*^9}, {3.958975621535499*^9, 
+   3.958975672064398*^9}, 3.958975751606016*^9, {3.958975796494382*^9, 
+   3.95897580408851*^9}, {3.95897587923705*^9, 3.9589758952166357`*^9}, 
+   3.958977537631957*^9},
+ CellLabel->"In[78]:=",ExpressionUUID->"87cb27df-679f-4e72-8bbc-0b8c454986e3"],
+
+Cell["\<\
+In this case we use Kronecker product to act on the input with the identity \
+on the first qubit and with the not on the qubit.\
+\>", "Text",
+ CellChangeTimes->{{3.958977544014193*^9, 
+  3.958977604086824*^9}},ExpressionUUID->"91b4abab-6810-4022-a8a4-\
+60c6e855e708"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"cnot", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"cnotFun", "[", "#", "]"}], "&"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Ket", "[", 
+         RowBox[{"0", ",", "2"}], "]"}], "\[CircleTimes]", 
+        RowBox[{"Ket", "[", 
+         RowBox[{"0", ",", "2"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Ket", "[", 
+         RowBox[{"0", ",", "2"}], "]"}], "\[CircleTimes]", 
+        RowBox[{"Ket", "[", 
+         RowBox[{"1", ",", "2"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Ket", "[", 
+         RowBox[{"1", ",", "2"}], "]"}], "\[CircleTimes]", 
+        RowBox[{"Ket", "[", 
+         RowBox[{"0", ",", "2"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Ket", "[", 
+         RowBox[{"1", ",", "2"}], "]"}], "\[CircleTimes]", 
+        RowBox[{"Ket", "[", 
+         RowBox[{"1", ",", "2"}], "]"}]}]}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"cnot", "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.9589753043702307`*^9, 3.958975356779388*^9}, {
+  3.958975708424592*^9, 3.9589757101844893`*^9}, {3.958975809357965*^9, 
+  3.958975809547009*^9}, {3.958977519224635*^9, 3.9589775236182413`*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"bee6b01f-5834-4c0e-b288-047772d3dd21"],
+
+Cell["\<\
+This gate is frequently used in quantum algorithms as it can be used, along \
+with gates acting on a single qubits, to express any quantum operation.\
+\>", "Text",
+ CellChangeTimes->{{3.95897953545813*^9, 
+  3.958979611047001*^9}},ExpressionUUID->"45d3c7d7-2eab-44bf-840f-\
+86f30e351887"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Reversibility of quantum gates", "Subtitle",
+ CellChangeTimes->{{3.958978313050267*^9, 
+  3.9589783222787*^9}},ExpressionUUID->"30a9ab11-6ade-4900-9961-e4f520774db7"],
+
+Cell["\<\
+The above examples show that the quantum gate corresponding to a classical \
+operation is represented by a matrix build from vectors obtained by the \
+action of the classical gate on the base vectors.\
+\>", "Text",
+ CellChangeTimes->{{3.9589776223578987`*^9, 
+  3.958977753531805*^9}},ExpressionUUID->"b3eb1193-4042-47f9-ba84-\
+fdc0b1390c06"],
+
+Cell["\<\
+But this condition is not sufficient. The resulting matrix has to preserve \
+the length of the vector. We need to make sure that our vectors can be \
+translated to probabilities after acting on them.\
+\>", "Text",
+ CellChangeTimes->{{3.958977779262641*^9, 
+  3.9589778787640877`*^9}},ExpressionUUID->"eca965d3-acc4-4e0d-9795-\
+dc855fd490c6"],
+
+Cell["Let us take the following example.", "Text",
+ CellChangeTimes->{{3.958977881992093*^9, 
+  3.958977943082034*^9}},ExpressionUUID->"2e06dff0-6816-40f9-83d2-\
+18523e4b4c3d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"invalidFun", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"Switch", "[", 
+     RowBox[{"#", ",", "_", ",", 
+      RowBox[{"Ket", "[", 
+       RowBox[{"0", ",", "2"}], "]"}]}], "]"}], "&"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.95897795812621*^9, 3.95897802797901*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"3a3c3321-48fa-4c05-9b38-d8e47a932575"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"invalid", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"invalidFun", "[", "#", "]"}], "&"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Ket", "[", 
+        RowBox[{"0", ",", "2"}], "]"}], ",", 
+       RowBox[{"Ket", "[", 
+        RowBox[{"1", ",", "2"}], "]"}]}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9589780113039207`*^9, 3.958978015625146*^9}},
+ CellLabel->"In[83]:=",ExpressionUUID->"155ec90b-2b15-410a-bda8-60d3c83156ad"],
+
+Cell[BoxData[
+ RowBox[{"invalid", "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.9589780206385107`*^9, 3.958978022346856*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"b1d9cc28-2ad8-4593-93b3-aaa8bee81a84"],
+
+Cell[TextData[{
+ "One can see, by employing ",
+ StyleBox["Norm",
+  FontWeight->"Bold"],
+ " function, that this matrix does not preserve the length."
+}], "Text",
+ CellChangeTimes->{{3.958978178415504*^9, 
+  3.9589782085295277`*^9}},ExpressionUUID->"219b5aa2-81cd-4a1a-a0e5-\
+5080e7fd459e"],
+
+Cell[BoxData[
+ RowBox[{"Norm", "[", 
+  RowBox[{"invalid", ".", 
+   RowBox[{"Ket", "[", 
+    RowBox[{"1", ",", "2"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.958978108433715*^9, 3.958978132328664*^9}, {
+  3.958978235263856*^9, 3.958978268898671*^9}},
+ CellLabel->"In[96]:=",ExpressionUUID->"f4657826-4854-46a0-8d80-523260fe62cb"],
+
+Cell[BoxData[
+ RowBox[{"Norm", "[", 
+  RowBox[{"invalid", ".", 
+   FractionBox[
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Ket", "[", 
+       RowBox[{"0", ",", "2"}], "]"}], "+", 
+      RowBox[{"Ket", "[", 
+       RowBox[{"1", ",", "2"}], "]"}]}], ")"}], 
+    RowBox[{"Sqrt", "[", "2", "]"}]]}], "]"}]], "Input",
+ CellChangeTimes->{{3.958978147117442*^9, 3.958978166229499*^9}},
+ CellLabel->"In[97]:=",ExpressionUUID->"0f7c71da-3ddd-4922-8579-15094a02bf5c"],
+
+Cell[BoxData[
+ RowBox[{"Norm", "[", 
+  RowBox[{"invalid", ".", 
+   RowBox[{"Ket", "[", 
+    RowBox[{"0", ",", "2"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.958978140544323*^9, 3.958978141027638*^9}, {
+  3.9589782650705967`*^9, 3.9589782734103937`*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"8aa7721a-d63d-49a7-8ef2-4ff0dc597a22"],
+
+Cell["\<\
+This function cannot be expressed as quantum gate because it is irreversible. \
+Once we get the output it is impossible to recover the input arguments.\
+\>", "Text",
+ CellChangeTimes->{{3.958977930974718*^9, 3.958977938732799*^9}, {
+  3.9589780624445467`*^9, 3.9589781019152*^9}, {3.958978340327628*^9, 
+  3.9589783413058968`*^9}},ExpressionUUID->"e2219834-7a78-4ad5-9d73-\
+f035c46affdf"],
+
+Cell[TextData[{
+ "Quantum gates need to be reversible. The matrices used to represent quantum \
+gates are unitary - they preserve the length and for each such gate ",
+ StyleBox["U",
+  FontSlant->"Italic"],
+ ", we have ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     StyleBox["U",
+      FontSlant->"Italic"], 
+     StyleBox[" ",
+      FontSlant->"Italic"], 
+     SuperscriptBox[
+      StyleBox["U",
+       FontSlant->"Italic"], "\[ConjugateTranspose]"]}], "=", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["U", "\[ConjugateTranspose]"], "U"}], "=", 
+     "\[CapitalIota]"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "87e4e657-4413-4982-8fa7-27840e000424"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["U", "\[ConjugateTranspose]"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e85fa55b-2247-4862-baf8-4c1b89f9dde4"],
+ " is the conjugate transposition of the a matrix ",
+ StyleBox["U",
+  FontSlant->"Italic"],
+ ", and \[CapitalIota] is the identity matrix."
+}], "Text",
+ CellChangeTimes->{{3.958978343342764*^9, 3.9589785350507317`*^9}, {
+  3.958979388826681*^9, 
+  3.9589794142016277`*^9}},ExpressionUUID->"c3d17a8c-6485-43f0-804d-\
+5a8847b3d20a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More quantum gates", "Subtitle",
+ CellChangeTimes->{{3.958978326426923*^9, 
+  3.95897833124008*^9}},ExpressionUUID->"58ef77f9-d361-48c8-a436-\
+aca93edcdb67"],
+
+Cell["\<\
+The gates introduced above are just the quantum counterparts of the logical \
+operations used in computer science. But quantum computers offer much more \
+freedom when it comes to the data processing. \
+\>", "Text",
+ CellChangeTimes->{{3.958978540549036*^9, 3.958978615317205*^9}, {
+  3.958978871029319*^9, 
+  3.9589788818896503`*^9}},ExpressionUUID->"9928803f-9cbf-459f-8ae4-\
+ba6b00f020ea"],
+
+Cell[TextData[{
+ "One of the most interesting examples is steams form the interpretations of \
+the quantum gates, which can be seen as the rotations of the base kets. In \
+the case of the negation gate we saw that it flips the base vectors: ",
+ Cell[BoxData[
+  TemplateBox[{"0"},
+   "Ket"]],ExpressionUUID->"4f36293a-8d91-46d0-bb20-2071d36c2f03"],
+ "is rotated to become ",
+ Cell[BoxData[
+  TemplateBox[{"1"},
+   "Ket"]],ExpressionUUID->"e32b91b9-dc2e-4dcb-89a2-0b46b51deabf"],
+ ", and ",
+ Cell[BoxData[
+  TemplateBox[{"1"},
+   "Ket"]],ExpressionUUID->"d67de39d-9b1d-4095-b115-69e1b78f28cb"],
+ "is rotated to became ",
+ Cell[BoxData[
+  TemplateBox[{"0"},
+   "Ket"]],ExpressionUUID->"a2409f4a-27a5-481b-b827-054eae5f3907"],
+ ". What if this rotation could be stooped in the middle?"
+}], "Text",
+ CellChangeTimes->{{3.958978901071774*^9, 
+  3.958979119700488*^9}},ExpressionUUID->"86e9a897-f52a-42ff-8bea-\
+bec4b716a6fa"],
+
+Cell["\<\
+An operations such that its twofold application would be a not should fulfill \
+the condition sqrtNot.sqrtNot is not.\
+\>", "Text",
+ CellChangeTimes->{{3.9589791220619383`*^9, 3.958979209570702*^9}, {
+  3.958979331775234*^9, 
+  3.9589793323953953`*^9}},ExpressionUUID->"c530231b-6c94-45d1-8203-\
+45d5b0a2fc77"],
+
+Cell[TextData[{
+ "In Wolfram we can calculate the matrix representation of this operation \
+using ",
+ StyleBox["MatrixPower",
+  FontWeight->"Bold"],
+ " function."
+}], "Text",
+ CellChangeTimes->{{3.958979213369092*^9, 
+  3.9589792839056263`*^9}},ExpressionUUID->"141abb02-c42f-47f3-933a-\
+a9f566f1fd39"],
+
+Cell[BoxData[
+ RowBox[{"sqrtNot", "=", 
+  RowBox[{"MatrixPower", "[", 
+   RowBox[{"not", ",", 
+    RowBox[{"1", "/", "2"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.958979243430966*^9, 3.958979262081815*^9}, {
+  3.958979292429377*^9, 3.958979292551375*^9}},
+ CellLabel->
+  "In[101]:=",ExpressionUUID->"163c36e9-ac71-4c31-9c1c-c56bd7ae3b10"],
+
+Cell["One can easily check that we get the matrix we wanted.", "Text",
+ CellChangeTimes->{{3.958979294436013*^9, 
+  3.95897931966835*^9}},ExpressionUUID->"3102cca0-2019-4ed3-97a0-\
+13b30acb5997"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sqrtNot", ".", "sqrtNot"}], "==", "not"}]], "Input",
+ CellChangeTimes->{{3.958979322883247*^9, 3.9589793246701097`*^9}},
+ CellLabel->
+  "In[102]:=",ExpressionUUID->"9ed106fb-3281-4410-9450-85b265e1f2b8"],
+
+Cell[BoxData[
+ RowBox[{"sqrtNot", ".", 
+  RowBox[{"sqrtNot", "\[ConjugateTranspose]"}]}]], "Input",
+ CellChangeTimes->{{3.958979351357312*^9, 3.958979382784912*^9}},
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"a8b09db0-126b-46c6-ace0-a27d9ce7b2b3"],
+
+Cell["\<\
+Indeed, any of the gates obtained in such a way would be  a proper quantum \
+logic gate.\
+\>", "Text",
+ CellChangeTimes->{{3.95897963937599*^9, 
+  3.9589796824133863`*^9}},ExpressionUUID->"e9be09c7-d368-4ba1-978e-\
+ab55e5c8b462"],
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
   RowBox[{
-   FractionBox["1", 
-    SqrtBox["2"]], ",", 
-   FractionBox["\[ImaginaryI]", 
-    SqrtBox["2"]], ",", "0", ",", "0"}], "}"}]], "Output",
- CellChangeTimes->{{3.958967264102247*^9, 3.9589672859815893`*^9}, 
-   3.958968035182184*^9},
- CellLabel->"Out[19]=",ExpressionUUID->"dc6e7871-9c0a-438f-b740-3d4e897604b9"]
-}, Open  ]]
+   RowBox[{
+    RowBox[{"MatrixPower", "[", 
+     RowBox[{"not", ",", 
+      RowBox[{"1", "/", "i"}]}], "]"}], "//", "MatrixForm"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "2", ",", "8", ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.958979686359975*^9, 3.958979739788529*^9}},
+ CellLabel->
+  "In[112]:=",ExpressionUUID->"dfd7befb-9f95-4fae-af38-29594e86aa47"],
+
+Cell["\<\
+Another example is based on the Fourier transform, which plays the prominent \
+place in the Shor\[CloseCurlyQuote]s algorithm for factorization. In this \
+case the quantum operation can be obtained in Wolfram by mapping Fourier \
+function onto the base kets. \
+\>", "Text",
+ CellChangeTimes->{{3.9589796198009653`*^9, 3.958979629807782*^9}, {
+  3.958979760215848*^9, 3.958979771621935*^9}, {3.958979993513034*^9, 
+  3.958980033453199*^9}, {3.958980291482307*^9, 3.958980330788349*^9}, {
+  3.958980497335146*^9, 
+  3.9589805010913353`*^9}},ExpressionUUID->"b773b0f9-17bb-4424-a49a-\
+01f8d46b842a"],
+
+Cell["For one qubit this operation is know a the Hadamard gate.", "Text",
+ CellChangeTimes->{{3.9589805033433857`*^9, 
+  3.958980541535137*^9}},ExpressionUUID->"7b5649ec-97f4-46a9-ade1-\
+181141a60af8"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"wh", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Fourier", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Ket", "[", 
+        RowBox[{"0", ",", "2"}], "]"}], ",", " ", 
+       RowBox[{"Ket", "[", 
+        RowBox[{"1", ",", "2"}], "]"}]}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"wh", "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{{3.958979865303529*^9, 3.958979903475478*^9}, {
+  3.958979933820444*^9, 3.9589799809918203`*^9}, {3.958980043453813*^9, 
+  3.958980043918042*^9}, {3.958980402755515*^9, 3.9589804036036587`*^9}},
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"0d9924da-e83d-4362-a0f5-1879c1549431"],
+
+Cell["\<\
+This operation is often used in quantum algorithm to prepare the \
+superposition of all possible inputs.\
+\>", "Text",
+ CellChangeTimes->{{3.958980334436501*^9, 
+  3.9589804077764273`*^9}},ExpressionUUID->"b1cdd1a7-7e80-4a01-b1b7-\
+615afb63d9b8"],
+
+Cell[BoxData[
+ RowBox[{"wh", ".", 
+  RowBox[{"Ket", "[", 
+   RowBox[{"0", ",", "2"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.958980387106049*^9, 
+  3.958980412581719*^9}},ExpressionUUID->"524a5678-1836-4e3e-8ece-\
+b0252e8a0083"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"wh", "\[CircleTimes]", "wh", "\[CircleTimes]", "wh"}], ")"}], ".", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Ket", "[", 
+     RowBox[{"0", ",", "2"}], "]"}], "\[CircleTimes]", 
+    RowBox[{"Ket", "[", 
+     RowBox[{"0", ",", "2"}], "]"}], "\[CircleTimes]", 
+    RowBox[{"Ket", "[", 
+     RowBox[{"0", ",", "2"}], "]"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.95898041720537*^9, 3.958980481079258*^9}},
+ CellLabel->
+  "In[135]:=",ExpressionUUID->"f6dd2c3c-4a3c-45f0-bf56-8de28b925aa7"],
+
+Cell["The quantum gate is a DFT matrix action on the input vector.", "Text",
+ CellChangeTimes->{{3.958980554964775*^9, 
+  3.958980614491948*^9}},ExpressionUUID->"592951e9-0547-495c-8bd3-\
+997f135390e6"],
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Map", "[", 
+      RowBox[{"Fourier", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Ket", "[", 
+           RowBox[{"0", ",", "2"}], "]"}], "\[CircleTimes]", 
+          RowBox[{"Ket", "[", 
+           RowBox[{"0", ",", "2"}], "]"}]}], ",", " ", 
+         RowBox[{
+          RowBox[{"Ket", "[", 
+           RowBox[{"0", ",", "2"}], "]"}], "\[CircleTimes]", 
+          RowBox[{"Ket", "[", 
+           RowBox[{"1", ",", "2"}], "]"}]}], ",", " ", 
+         RowBox[{
+          RowBox[{"Ket", "[", 
+           RowBox[{"1", ",", "2"}], "]"}], "\[CircleTimes]", 
+          RowBox[{"Ket", "[", 
+           RowBox[{"0", ",", "2"}], "]"}]}], ",", " ", 
+         RowBox[{
+          RowBox[{"Ket", "[", 
+           RowBox[{"1", ",", "2"}], "]"}], "\[CircleTimes]", 
+          RowBox[{"Ket", "[", 
+           RowBox[{"1", ",", "2"}], "]"}]}]}], "}"}]}], "]"}], "//", "N"}], "//",
+     "Chop"}], "//", "MatrixForm"}]}]], "Input",
+ CellChangeTimes->{{3.958980051212566*^9, 3.958980078988817*^9}, {
+   3.958980197886059*^9, 3.95898021181186*^9}, 3.958980490332491*^9},
+ CellLabel->
+  "In[136]:=",ExpressionUUID->"d9fe67db-de4c-4f50-9dc8-2d96b97e3c1b"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1326.75, 888},
-WindowMargins->{{99, Automatic}, {Automatic, 64.5}},
+WindowSize->{1440, 759.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"14.2 for Linux x86 (64-bit) (December 26, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"37ae0421-f1d9-4829-813e-ca315436f75e"
@@ -807,70 +1112,100 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[576, 22, 180, 3, 96, "Title",ExpressionUUID->"24b8f8a7-2544-4932-9c53-52776362d459"],
 Cell[759, 27, 183, 3, 52, "Subtitle",ExpressionUUID->"feeba951-c5ca-48c1-afcf-f7aa16839a08"],
-Cell[945, 32, 366, 7, 33, "Text",ExpressionUUID->"a6eb60f0-a8f7-49fa-b2a8-705708f2b715"],
+Cell[945, 32, 1945, 42, 208, "Text",ExpressionUUID->"a6eb60f0-a8f7-49fa-b2a8-705708f2b715"],
 Cell[CellGroupData[{
-Cell[1336, 43, 207, 4, 52, "Subtitle",ExpressionUUID->"58ac153e-2888-4097-a3ef-ef30a5b4655f"],
-Cell[1546, 49, 946, 19, 58, "Text",ExpressionUUID->"6f8d1f93-9ee6-4b97-a7b3-8197e0371789"],
-Cell[2495, 70, 659, 16, 36, "Text",ExpressionUUID->"54bcb36e-4149-4381-9492-71234b0f5f61"],
-Cell[3157, 88, 595, 16, 49, "Input",ExpressionUUID->"b770a41d-1bbb-447a-98ee-b9be93568dad"],
-Cell[3755, 106, 455, 14, 54, "Input",ExpressionUUID->"fa67ff96-3209-4018-88b5-5883548d2593"],
-Cell[4213, 122, 180, 3, 33, "Text",ExpressionUUID->"82d86db0-c5a4-47c9-8e58-814bb5d7e26b"],
-Cell[CellGroupData[{
-Cell[4418, 129, 197, 4, 31, "Input",ExpressionUUID->"d479503c-00dd-41a4-bcd6-eba2bc547182"],
-Cell[4618, 135, 289, 5, 33, "Output",ExpressionUUID->"39646ac6-af19-4948-8c60-be182eaa436e"]
+Cell[2915, 78, 264, 4, 52, "Subtitle",ExpressionUUID->"58ac153e-2888-4097-a3ef-ef30a5b4655f"],
+Cell[3182, 84, 946, 19, 61, "Text",ExpressionUUID->"6f8d1f93-9ee6-4b97-a7b3-8197e0371789"],
+Cell[4131, 105, 659, 16, 36, "Text",ExpressionUUID->"54bcb36e-4149-4381-9492-71234b0f5f61"],
+Cell[4793, 123, 594, 16, 49, "Input",ExpressionUUID->"b770a41d-1bbb-447a-98ee-b9be93568dad"],
+Cell[5390, 141, 455, 14, 54, "Input",ExpressionUUID->"fa67ff96-3209-4018-88b5-5883548d2593"],
+Cell[5848, 157, 180, 3, 33, "Text",ExpressionUUID->"82d86db0-c5a4-47c9-8e58-814bb5d7e26b"],
+Cell[6031, 162, 197, 4, 31, "Input",ExpressionUUID->"d479503c-00dd-41a4-bcd6-eba2bc547182"],
+Cell[6231, 168, 197, 4, 31, "Input",ExpressionUUID->"0482fdbb-3e16-4759-bb32-4f420630c4ea"],
+Cell[6431, 174, 370, 7, 33, "Text",ExpressionUUID->"a5bf0435-b918-4d76-a297-9532fab3c579"],
+Cell[6804, 183, 280, 7, 33, "Text",ExpressionUUID->"ae8a0a77-c798-4e0c-abd6-e40954449729"],
+Cell[7087, 192, 526, 15, 31, "Input",ExpressionUUID->"20d05b20-3d21-45d3-bd7b-a742963f45af"],
+Cell[7616, 209, 186, 3, 33, "Text",ExpressionUUID->"8927d36f-6126-4e0f-8dd8-fbda37d761fc"],
+Cell[7805, 214, 626, 14, 55, "Text",ExpressionUUID->"95274323-b32d-4f63-8eed-eb95c0dbdfea"],
+Cell[8434, 230, 577, 10, 55, "Text",ExpressionUUID->"1884f116-863b-42c3-a451-97fbbdb77f80"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4944, 145, 197, 4, 31, "Input",ExpressionUUID->"0482fdbb-3e16-4759-bb32-4f420630c4ea"],
-Cell[5144, 151, 288, 5, 33, "Output",ExpressionUUID->"651f4a33-8526-455a-af48-7a7dfbd5ae5a"]
-}, Open  ]],
-Cell[5447, 159, 370, 7, 33, "Text",ExpressionUUID->"a5bf0435-b918-4d76-a297-9532fab3c579"],
-Cell[5820, 168, 280, 7, 33, "Text",ExpressionUUID->"ae8a0a77-c798-4e0c-abd6-e40954449729"],
-Cell[6103, 177, 526, 15, 31, "Input",ExpressionUUID->"20d05b20-3d21-45d3-bd7b-a742963f45af"],
-Cell[6632, 194, 186, 3, 33, "Text",ExpressionUUID->"8927d36f-6126-4e0f-8dd8-fbda37d761fc"],
-Cell[6821, 199, 626, 14, 55, "Text",ExpressionUUID->"95274323-b32d-4f63-8eed-eb95c0dbdfea"],
-Cell[7450, 215, 577, 10, 55, "Text",ExpressionUUID->"1884f116-863b-42c3-a451-97fbbdb77f80"]
+Cell[9048, 245, 215, 4, 52, "Subtitle",ExpressionUUID->"4f8f0235-546f-4178-89e3-701f3926d8c9"],
+Cell[9266, 251, 543, 12, 55, "Text",ExpressionUUID->"cdce50e5-a028-4c8c-87de-d0ea8cd937ed"],
+Cell[9812, 265, 791, 22, 90, "Input",ExpressionUUID->"845190a8-a821-49b7-88b0-0b11132dfc66"],
+Cell[10606, 289, 268, 6, 33, "Text",ExpressionUUID->"cbbde1d1-79bd-49f7-aa2e-d8dd7f6c897f"],
+Cell[10877, 297, 374, 7, 29, "Input",ExpressionUUID->"18104d1b-1bb2-4f4a-b999-12a25296fae7"],
+Cell[11254, 306, 646, 13, 55, "Text",ExpressionUUID->"3bf9fbce-aa30-4bf2-b4aa-de8f19a09d43"],
+Cell[11903, 321, 213, 3, 33, "Text",ExpressionUUID->"79f89db1-de31-4b54-9ca1-5bbe833c20ea"],
+Cell[12119, 326, 424, 10, 29, "Input",ExpressionUUID->"8eb53270-3a07-42c0-9922-867477b65536"],
+Cell[12546, 338, 274, 6, 33, "Text",ExpressionUUID->"951bbf93-08e6-48a6-8d18-91fd106489ef"],
+Cell[12823, 346, 246, 4, 29, "Input",ExpressionUUID->"caf8fdfa-33a2-422c-bf21-d3474ada8c91"],
+Cell[13072, 352, 410, 10, 33, "Text",ExpressionUUID->"8ba80d92-841c-438b-848e-6dc132eb5015"],
+Cell[13485, 364, 461, 11, 29, "Input",ExpressionUUID->"a4ecd692-7ab1-47c3-92da-932347a0c89e"],
+Cell[13949, 377, 219, 3, 33, "Text",ExpressionUUID->"514a7875-9070-41a0-b045-862c07c4c5ad"],
+Cell[14171, 382, 544, 14, 49, "Input",ExpressionUUID->"769774ce-417d-457e-b3fa-903f76053549"],
+Cell[14718, 398, 606, 17, 36, "Text",ExpressionUUID->"7e621a45-a4e8-436c-9de3-fcf7b0588596"],
+Cell[15327, 417, 236, 5, 33, "Text",ExpressionUUID->"a10b1fb3-3395-4536-841a-2afb42cb3df0"],
+Cell[15566, 424, 311, 7, 30, "Input",ExpressionUUID->"2822bec4-daa3-44a4-9378-242b84d43768"],
+Cell[15880, 433, 561, 17, 36, "Text",ExpressionUUID->"ad1baff0-485b-4fed-9844-cbc6ac540e39"],
+Cell[16444, 452, 391, 9, 29, "Input",ExpressionUUID->"1104ee81-b70a-4fe3-aed8-8ab80972e6c2"],
+Cell[16838, 463, 253, 4, 33, "Text",ExpressionUUID->"8bdc7579-8b3d-4bf5-8eda-c8ae24eb7b6e"],
+Cell[17094, 469, 403, 13, 53, "Input",ExpressionUUID->"a21e7dfb-a535-403d-9c1c-ac920e32b8a9"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8064, 230, 215, 4, 52, "Subtitle",ExpressionUUID->"4f8f0235-546f-4178-89e3-701f3926d8c9"],
-Cell[8282, 236, 543, 12, 55, "Text",ExpressionUUID->"cdce50e5-a028-4c8c-87de-d0ea8cd937ed"],
-Cell[CellGroupData[{
-Cell[8850, 252, 791, 22, 90, "Input",ExpressionUUID->"845190a8-a821-49b7-88b0-0b11132dfc66"],
-Cell[9644, 276, 888, 28, 62, "Output",ExpressionUUID->"78ae6eb8-6c64-4ada-84c1-f6ed08f242f5"],
-Cell[10535, 306, 886, 28, 62, "Output",ExpressionUUID->"555b3c20-5064-4607-891d-ba857e72ea2d"]
+Cell[17534, 487, 232, 4, 52, "Subtitle",ExpressionUUID->"d149e780-22fc-4d07-8df1-fe2cb5fefb98"],
+Cell[17769, 493, 483, 9, 55, "Text",ExpressionUUID->"099b1b33-3945-4d56-a442-bdc886cb76da"],
+Cell[18255, 504, 438, 9, 55, "Text",ExpressionUUID->"fd90909b-0151-4f54-8c68-2857040645c9"],
+Cell[18696, 515, 305, 6, 33, "Text",ExpressionUUID->"34b646de-d72d-4115-977e-5f8150488658"],
+Cell[19004, 523, 279, 7, 29, "Input",ExpressionUUID->"b7acbcbe-0518-49eb-b543-d146283cc173"],
+Cell[19286, 532, 322, 9, 33, "Text",ExpressionUUID->"f596e249-998c-420d-bdab-9083db684a83"],
+Cell[19611, 543, 556, 15, 51, "Input",ExpressionUUID->"8849b97a-fba3-46d3-8262-fdd3408eecf4"],
+Cell[20170, 560, 219, 5, 33, "Text",ExpressionUUID->"69e88ac3-13cb-41bd-89a5-3b2d3c51b208"],
+Cell[20392, 567, 564, 15, 36, "Text",ExpressionUUID->"c653f435-26df-4216-8a06-12a40af8cfa9"],
+Cell[20959, 584, 870, 19, 89, "Input",ExpressionUUID->"dcfa223d-967e-4007-865e-ec37c2e89311"],
+Cell[21832, 605, 231, 6, 33, "Text",ExpressionUUID->"32f87a0f-1cef-48fc-be87-7d8852d8eb9e"],
+Cell[22066, 613, 573, 15, 49, "Input",ExpressionUUID->"a740f5fc-a7e8-46da-9032-15ad5d9c537d"],
+Cell[22642, 630, 596, 12, 58, "Text",ExpressionUUID->"8048a3f9-70a0-4097-9756-67f83e4362d1"],
+Cell[23241, 644, 978, 22, 29, "Input",ExpressionUUID->"87cb27df-679f-4e72-8bbc-0b8c454986e3"],
+Cell[24222, 668, 277, 6, 33, "Text",ExpressionUUID->"91b4abab-6810-4022-a8a4-60c6e855e708"],
+Cell[24502, 676, 1310, 33, 49, "Input",ExpressionUUID->"bee6b01f-5834-4c0e-b288-047772d3dd21"],
+Cell[25815, 711, 298, 6, 33, "Text",ExpressionUUID->"45d3c7d7-2eab-44bf-840f-86f30e351887"]
 }, Open  ]],
-Cell[11436, 337, 268, 6, 33, "Text",ExpressionUUID->"cbbde1d1-79bd-49f7-aa2e-d8dd7f6c897f"],
 Cell[CellGroupData[{
-Cell[11729, 347, 374, 7, 29, "Input",ExpressionUUID->"18104d1b-1bb2-4f4a-b999-12a25296fae7"],
-Cell[12106, 356, 2995, 103, 112, "Output",ExpressionUUID->"f4718070-9260-4095-b30b-c4b3c8362a12"]
+Cell[26150, 722, 172, 2, 52, "Subtitle",ExpressionUUID->"30a9ab11-6ade-4900-9961-e4f520774db7"],
+Cell[26325, 726, 352, 7, 33, "Text",ExpressionUUID->"b3eb1193-4042-47f9-ba84-fdc0b1390c06"],
+Cell[26680, 735, 351, 7, 33, "Text",ExpressionUUID->"eca965d3-acc4-4e0d-9795-dc855fd490c6"],
+Cell[27034, 744, 176, 3, 33, "Text",ExpressionUUID->"2e06dff0-6816-40f9-83d2-18523e4b4c3d"],
+Cell[27213, 749, 381, 9, 29, "Input",ExpressionUUID->"3a3c3321-48fa-4c05-9b38-d8e47a932575"],
+Cell[27597, 760, 519, 14, 29, "Input",ExpressionUUID->"155ec90b-2b15-410a-bda8-60d3c83156ad"],
+Cell[28119, 776, 212, 3, 29, "Input",ExpressionUUID->"b1d9cc28-2ad8-4593-93b3-aaa8bee81a84"],
+Cell[28334, 781, 288, 8, 33, "Text",ExpressionUUID->"219b5aa2-81cd-4a1a-a0e5-5080e7fd459e"],
+Cell[28625, 791, 336, 7, 29, "Input",ExpressionUUID->"f4657826-4854-46a0-8d80-523260fe62cb"],
+Cell[28964, 800, 461, 12, 44, "Input",ExpressionUUID->"0f7c71da-3ddd-4922-8579-15094a02bf5c"],
+Cell[29428, 814, 340, 7, 29, "Input",ExpressionUUID->"8aa7721a-d63d-49a7-8ef2-4ff0dc597a22"],
+Cell[29771, 823, 398, 7, 33, "Text",ExpressionUUID->"e2219834-7a78-4ad5-9d73-f035c46affdf"],
+Cell[30172, 832, 1227, 37, 55, "Text",ExpressionUUID->"c3d17a8c-6485-43f0-804d-5a8847b3d20a"]
 }, Open  ]],
-Cell[15116, 462, 646, 13, 55, "Text",ExpressionUUID->"3bf9fbce-aa30-4bf2-b4aa-de8f19a09d43"],
-Cell[15765, 477, 213, 3, 33, "Text",ExpressionUUID->"79f89db1-de31-4b54-9ca1-5bbe833c20ea"],
-Cell[15981, 482, 424, 10, 29, "Input",ExpressionUUID->"8eb53270-3a07-42c0-9922-867477b65536"],
-Cell[16408, 494, 274, 6, 33, "Text",ExpressionUUID->"951bbf93-08e6-48a6-8d18-91fd106489ef"],
 Cell[CellGroupData[{
-Cell[16707, 504, 246, 4, 29, "Input",ExpressionUUID->"caf8fdfa-33a2-422c-bf21-d3474ada8c91"],
-Cell[16956, 510, 2994, 102, 112, "Output",ExpressionUUID->"6f19b9e5-268c-4617-aeac-ec78b12ad4f7"]
-}, Open  ]],
-Cell[19965, 615, 410, 10, 33, "Text",ExpressionUUID->"8ba80d92-841c-438b-848e-6dc132eb5015"],
-Cell[20378, 627, 461, 11, 29, "Input",ExpressionUUID->"a4ecd692-7ab1-47c3-92da-932347a0c89e"],
-Cell[20842, 640, 219, 3, 33, "Text",ExpressionUUID->"514a7875-9070-41a0-b045-862c07c4c5ad"],
-Cell[CellGroupData[{
-Cell[21086, 647, 544, 14, 49, "Input",ExpressionUUID->"769774ce-417d-457e-b3fa-903f76053549"],
-Cell[21633, 663, 373, 10, 50, "Output",ExpressionUUID->"b9e7f175-c40c-4801-8493-6bd3c1613b7c"]
-}, Open  ]],
-Cell[22021, 676, 606, 17, 36, "Text",ExpressionUUID->"7e621a45-a4e8-436c-9de3-fcf7b0588596"],
-Cell[22630, 695, 236, 5, 33, "Text",ExpressionUUID->"a10b1fb3-3395-4536-841a-2afb42cb3df0"],
-Cell[22869, 702, 311, 7, 30, "Input",ExpressionUUID->"2822bec4-daa3-44a4-9378-242b84d43768"],
-Cell[23183, 711, 561, 17, 36, "Text",ExpressionUUID->"ad1baff0-485b-4fed-9844-cbc6ac540e39"],
-Cell[CellGroupData[{
-Cell[23769, 732, 391, 9, 29, "Input",ExpressionUUID->"1104ee81-b70a-4fe3-aed8-8ab80972e6c2"],
-Cell[24163, 743, 282, 6, 33, "Output",ExpressionUUID->"510e9485-43ce-467e-be44-5668846fbeb4"]
-}, Open  ]],
-Cell[24460, 752, 253, 4, 33, "Text",ExpressionUUID->"8bdc7579-8b3d-4bf5-8eda-c8ae24eb7b6e"],
-Cell[CellGroupData[{
-Cell[24738, 760, 403, 13, 53, "Input",ExpressionUUID->"a21e7dfb-a535-403d-9c1c-ac920e32b8a9"],
-Cell[25144, 775, 350, 9, 50, "Output",ExpressionUUID->"dc6e7871-9c0a-438f-b740-3d4e897604b9"]
-}, Open  ]]
+Cell[31436, 874, 163, 3, 52, "Subtitle",ExpressionUUID->"58ef77f9-d361-48c8-a436-aca93edcdb67"],
+Cell[31602, 879, 402, 8, 33, "Text",ExpressionUUID->"9928803f-9cbf-459f-8ae4-ba6b00f020ea"],
+Cell[32007, 889, 919, 23, 58, "Text",ExpressionUUID->"86e9a897-f52a-42ff-8bea-bec4b716a6fa"],
+Cell[32929, 914, 320, 7, 33, "Text",ExpressionUUID->"c530231b-6c94-45d1-8203-45d5b0a2fc77"],
+Cell[33252, 923, 302, 9, 33, "Text",ExpressionUUID->"141abb02-c42f-47f3-933a-a9f566f1fd39"],
+Cell[33557, 934, 342, 8, 29, "Input",ExpressionUUID->"163c36e9-ac71-4c31-9c1c-c56bd7ae3b10"],
+Cell[33902, 944, 195, 3, 33, "Text",ExpressionUUID->"3102cca0-2019-4ed3-97a0-13b30acb5997"],
+Cell[34100, 949, 238, 5, 29, "Input",ExpressionUUID->"9ed106fb-3281-4410-9450-85b265e1f2b8"],
+Cell[34341, 956, 248, 5, 29, "Input",ExpressionUUID->"a8b09db0-126b-46c6-ace0-a27d9ce7b2b3"],
+Cell[34592, 963, 239, 6, 33, "Text",ExpressionUUID->"e9be09c7-d368-4ba1-978e-ab55e5c8b462"],
+Cell[34834, 971, 428, 11, 29, "Input",ExpressionUUID->"dfd7befb-9f95-4fae-af38-29594e86aa47"],
+Cell[35265, 984, 606, 11, 55, "Text",ExpressionUUID->"b773b0f9-17bb-4424-a49a-01f8d46b842a"],
+Cell[35874, 997, 201, 3, 33, "Text",ExpressionUUID->"7b5649ec-97f4-46a9-ade1-181141a60af8"],
+Cell[36078, 1002, 676, 16, 51, "Input",ExpressionUUID->"0d9924da-e83d-4362-a0f5-1879c1549431"],
+Cell[36757, 1020, 256, 6, 33, "Text",ExpressionUUID->"b1cdd1a7-7e80-4a01-b1b7-615afb63d9b8"],
+Cell[37016, 1028, 230, 6, 29, "Input",ExpressionUUID->"524a5678-1836-4e3e-8ece-b0252e8a0083"],
+Cell[37249, 1036, 540, 14, 29, "Input",ExpressionUUID->"f6dd2c3c-4a3c-45f0-bf56-8de28b925aa7"],
+Cell[37792, 1052, 202, 3, 33, "Text",ExpressionUUID->"592951e9-0547-495c-8bd3-997f135390e6"],
+Cell[37997, 1057, 1246, 33, 30, "Input",ExpressionUUID->"d9fe67db-de4c-4f50-9dc8-2d96b97e3c1b"]
 }, Open  ]]
 }, Open  ]]
 }
